@@ -1,15 +1,12 @@
 <template>
   <div class="shop">
     <img :src="item.imgUrl" alt="" class="shop__img" />
-    <div class="shop__content">
+    <div class="shop__content" :class="{'shop__content--bordered': !hideBorder}">
       <div class="shop__title" v-text="item.name"></div>
       <div class="shop__tags">
-        <span
-          class="shop__tag"
-          v-for="(tag, tagIndex) in item.tags"
-          :key="tagIndex"
-          v-text="tag"
-        ></span>
+        <span class="shop__tag">月售{{item.sales}}</span>
+        <span class="shop__tag">起送￥{{item.expressLimit}}</span>
+        <span class="shop__tag">基础运费￥{{item.expressPrice}}</span>
       </div>
       <div class="shop__highlight" v-text="item.slogan"></div>
     </div>
@@ -18,7 +15,7 @@
 <script>
 export default {
   name: "ShopInfo",
-  props: ["item"],
+  props: ["item", "hideBorder"],
   data() {
     return {};
   },
@@ -38,7 +35,9 @@ export default {
   &__content {
     flex: 1;
     padding-bottom: 0.12rem;
-    border-bottom: 1px solid $content_bgColor;
+    &--bordered {
+      border-bottom: 1px solid $content_bgColor;
+    }
   }
   &__title {
     font-size: 0.16rem;
