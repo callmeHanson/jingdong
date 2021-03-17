@@ -64,9 +64,9 @@ export default {
 }
 .search {
   line-height: 0.32rem;
-  background: #f5f5f5;
+  background: $search_bgColor;
   border-radius: 0.16rem;
-  color: #b7b7b7;
+  color: $search_fontColor;
   margin-bottom: 0.12rem;
   &__icon {
     margin: 0 0.12rem 0 0.16rem;
@@ -98,7 +98,7 @@ export default {
     }
     &__text {
       text-align: center;
-      color: #333333;
+      color: $content_fontcolor;
       font-size: 0.12rem;
       line-height: 0.17rem;
       margin: 0.06rem 0 0.16rem 0;
